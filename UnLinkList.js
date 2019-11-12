@@ -3,11 +3,10 @@ var util = require('./utility/utility');
 var rdl = require('readline-sync');
 var ll = new ull.LinkedList();
 var fs = require('fs');
-fs.writeFileSync('UnOrdered.txt','Hiii I am doing great Please Learn Data Structure throughly Done');
-var str=" ";
-str = fs.readFileSync('UnOrdered.txt').toString();
-console.log(str);
-var res = str.split(" ");
+var string=" ";
+string = fs.readFileSync('UnOrdered.txt').toString();
+console.log(string);
+var res = string.split(" ");
 var n = res.length;
 var string =" ";
 function search()

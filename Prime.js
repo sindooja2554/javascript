@@ -7,4 +7,4 @@ var resultPrime=function()
 }
 
 resultPrime();
-
+    

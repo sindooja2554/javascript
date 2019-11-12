@@ -1,0 +1,12 @@
+var util = require('./utility/BalancedEx');
+var u = new util.Stack();
+u.pushElement(10);
+u.pushElement(20);
+u.pushElement(30);
+u.pushElement(40);
+u.pushElement(50);
+u.display();
+//u.popElement();
+var s =u.peek();
+console.log(s);
+u.display();

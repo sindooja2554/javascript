@@ -6,7 +6,8 @@ hashFunction(hashArray,result)
 {
     try
     {
-        if(result===undefined)    throw 'File cant be empty'
+        if(result===undefined || result===null)    throw 'File cannot be empty'
+        if(isNaN(result))   throw 'Should be a number'
         for(var i=0;i<result.length;i++)
         {
             var newString=result[i];

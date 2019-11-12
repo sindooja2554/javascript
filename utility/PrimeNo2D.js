@@ -40,6 +40,7 @@ class Prime2D
     {
         try
         {
+            if(n==undefined||n==null)  throw 'Cannot be undefined or null'
             if(isNaN(n))  throw 'Please enter valid input'
             var array = new Array();
             var position=0;
@@ -75,30 +76,34 @@ class Prime2D
     {
         try
         {
-            var string1 = string1.toString().split();
+            if(string1==undefined||string2==undefined||string1==null||string2==null)  throw  'String cannot be undefined or null'
             
-            console.log(this.sort(string1));
-            var string2 = string2.toString().split();
-            //if(string1==undefined || string2==undefined)    throw 'Cant be undefined'
-            var check = false;
-            if(string1.length!=string2.length)
-            {
-                //break;
+            var count=0;
+            var string1=string1.toString().split("");
+            string1.sort();
+            var string2=string2.toString().split("");
+            string2.sort();
+            
+            var l1=string1.length;
+            //console.log(l1);
+            if(string1.length!=string2.length){
                 return false;
             }
-            else
-            {
-                for(var i=0;i<string1.length;i++)
-                {
-                    //console.log("i="+i);
-
+    
+            else{
+                for(var i=0;i<l1;i++){
+                    if (string1[i] == string2[i]) {
+                        count++;
+                    }
                 }
-                if(check==true)
-                {
-                    return true
+                if (count==string1.length) {
+                    return true;
+                  //console.log("string are anagram");
                 }
-                else
-                    return false
+                else {
+                  return false;
+                    //console.log("string are not anagram");
+                }
             }
         }
         catch(e)
@@ -112,108 +117,70 @@ class Prime2D
     //sort
     sort(string)
     {
-        var string = string.toString();
-        var temp;
-        for(var i=0;i<string.length;i++)
-        {
-            for(var j=1;j<string.length;j++)
-            {
-                if(string[i]>string[j])
-                {
-                    temp = string[i];
-                    string[i]=string[j];
-                    string[j]=temp;
-                }
-            }
-        }
-        //console.log(string);
-        return string
-    }
-
-    //to print prime anagram
-    primeAnagram()
-    {
-        var primeAnagram=new Array();
-        primeAnagram = this.primeNumber(1000);
-        console.log(primeAnagram.length);
         try
         {
-            if(primeAnagram==undefined)   throw 'cannot be undefined'
-            //var array =[['000-100'],['100-200'],['200-300'],['300-400'],['400-500'],['500-600'],['600-700'],['700-800'],['800-900'],['900-1000']];
-            var arrayAnagram=[];
-            var range=100;
-            var p=0;
-            for(var i=0;i<range;i++)
-            {
-               for(var j=i+1;j<range;j++)
-               {
-                   //var string1 = primeAnagram[i];
-                   //var string2 = primeAnagram[j];
-                   console.log(this.isAnagram(primeAnagram[i].toString(),primeAnagram[j].toString()));
-                   if(this.isAnagram(primeAnagram[i],primeAnagram[j])==true)
-                   {
-                       if(primeAnagram[i]<range && primeAnagram[j]<range)
-                       {
-                            arrayAnagram.push(primeAnagram[i]);
-                            arrayAnagram.push(primeAnagram[j]);
-                        }
-                        //range = range + 100;
-                        else
-                        {
-                            p++;
-                            range = range + 100;
-                            arrayAnagram[p] = [];
-                            if (primeAnagram[j] <= range)
-                            {
-                                arrayAnagram[p].push(primeAnagram[i]);
-                                arrayAnagram[p].push(primeAnagram[j]);
-                            }
-                        }
+            if(string==undefined||string==null)  throw 'String cannot be undefined or null'
+            var array=string;
+            for(var i=0;i<array.length-1;i++){
+                for(var j=i+1;i<array.length;j++){
+                    if(string[i]<string[j]){
+                        var temp=string[i];
+                        string[i]=string[j];
+                        string[j]=temp;
                     }
                 }
             }
-            return arrayAnagram;
+            return array;
         }
         catch(e)
         {
             return e
         }
     }
-/*primeAnagram(){
-    var arrayPrime = this.primeNumber(1000);
-var arrAP = [[]];
-var range = 100, p = 0;
-//	prints prime numbers that are anagrams
-for (let i = 0; i < arrayPrime.length; i++) {
-    for (let j = i + 1; j < arrayPrime.length; j++) {
 
-        if (this.isAnagram(arrayPrime[i].toString(), arrayPrime[j].toString())) {
-            if (arrayPrime[i] <= range) {
-                if (arrayPrime[j] <= range) {
-                    arrAP[p].push(arrayPrime[i]);
-                    arrAP[p].push(arrayPrime[j]);
+    //to print prime anagram
+    primeAnagram()
+    {
+        var primenumbers = this.primeNumber(1000);
+        //console.log(primenumbers.length);
+        var array=[[]];
+        var row=0,range=100;
+        var k=0;
+        var value=false;
+          //for comparing two prime are anagram or not.
+        for (let i = 0; i < primenumbers.length - 1; i++) 
+        {
+            for (let j = i + 1; j < primenumbers.length; j++) 
+            {
+                //check two primes angram or not
+                var value=(this.isAnagram(primenumbers[i],primenumbers[j]))
+                if(value==true){
+                    if (primenumbers[i] <= range) 
+                    {
+                        //store the two anagram in array
+                        if (primenumbers[j] <= range) 
+                        {
+                           array[k].push(primenumbers[i]);
+                            array[k].push(primenumbers[j]);
+                        }
+                    } 
+                    else 
+                    {
+                        range = range + 100;
+                        k++;
+                        array[k] = [];
+                        if (primenumbers[j] <= range) 
+                        {
+                            array[k].push(primenumbers[i]);
+                            array[k].push(primenumbers[j]);
+                        }
+                    }
                 }
-            }
-            else {
-                p++;
-                range = range + 100;
-                arrAP[p] = [];
-                if (arrayPrime[j] <= range) {
-                    arrAP[p].push(arrayPrime[i]);
-                    arrAP[p].push(arrayPrime[j]);
-                }
+        
             }
         }
+        console.log(array);
     }
-}
-console.log("Anagram prime numbers are: ");
-for (let i = 0; i < 10; i++) {
-
-    console.log(arrAP[i]);
-}
-
-
-}*/
 }
 
 module.exports={

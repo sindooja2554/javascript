@@ -31,8 +31,8 @@ methods.LeapYear = function(year)
     try
     {
         var a = Number(year);
-        if(Number.isInteger(a) !== true) throw "The Year should be a number";
-        if(year.length != 4) throw new Error('The Year should be 4 Digit number');
+        if(Number.isInteger(a) !== true) throw "The Year should be a number"
+        if(year.length != 4) throw 'The Year should be 4 Digit number'
       
                 if(year%4===0)
                     return true;
@@ -396,10 +396,12 @@ methods.Quadratic = function (a,b,c,delta)
 }
 
 //binarySearch
-methods.BinarySearch = function(arr, l, r, x)
+methods.BinarySearch = function(arr, x)
 {
     try
     {
+        var l = 0;
+        var r = arr.length;
         if(Array.isArray(arr)!=true)
         {
             //console.log(Array.isArray(arr));
@@ -447,11 +449,11 @@ methods.BubbleSort = function(array)
         //if(array.length!==0)
         //{
             var n = array.length;
-            console.log(n);
+            //console.log(n);
             var temp=0;
             for(var i=0; i<n; i++)
             {
-                for(var j=0; j<n-1-i; j++)
+                for(var j=0; j<n; j++)
                 {
                     if(array[j]>array[j+1])
                     {

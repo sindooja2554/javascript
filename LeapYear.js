@@ -1,6 +1,7 @@
 const yr = require('./utility/utility');
 var readline = require('readline-sync');
-function leapYear(){
+function leapYear()
+{
 var year ;
 // year= readline.question("Enter year to check=");
 console.log("Enter year to check=");

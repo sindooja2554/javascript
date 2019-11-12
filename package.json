@@ -11,8 +11,10 @@
     "chai": "^4.2.0",
     "mocha": "^6.2.2",
     "node-stopwatch": "0.0.1",
+    "print": "^1.1.0",
     "readline-sync": "^1.4.10",
-    "regex": "^0.1.1"
+    "regex": "^0.1.1",
+    "util": "^0.12.1"
   },
   "devDependencies": {},
   "description": ""

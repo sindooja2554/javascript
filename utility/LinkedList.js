@@ -111,22 +111,22 @@ class LinkedList
     }
 
     //search 
-    /*search()
+    search()
     {
         var search = rdl.question("Enter to search=");
-        var found = isThere(search);
+        var found = this.isThere(search);
         console.log(found);
-        if(found===true)
+        if(found==true)
         {
-            remove(search);
-            print();
+            this.remove(search);
+            this.print();
         }
         else
         {
-            append(search);
-            print();
+            this.append(search);
+            this.print();
         }
-    }*/
+    }
 
     //Remove by index
     removeAt(index)
@@ -171,13 +171,16 @@ class LinkedList
         {
             if(data==undefined||data==null)   throw 'Cannot be undefined or null'
             let current;
-            let prev;
+            let prev=null;
             current=this.head;
-            while(current)
+            while(current!=null)
             {
-                if(data.toLowerCase()==current.data.toLowerCase())
-                {
-                    prev.next =current.next;
+                if(data==current.data)
+                {   
+                    if(prev==null)
+                        this.head=current.next;
+                    else
+                        prev.next =current.next;
                 }
                 prev=current;
                 current=current.next;
@@ -227,7 +230,7 @@ class LinkedList
             string+='->'+current.data;
             current=current.next;
         }
-        console.log(string);
+        //console.log(string);
         return string;
     }
 }

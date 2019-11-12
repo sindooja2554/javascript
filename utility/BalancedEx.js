@@ -2,8 +2,8 @@ class Node
 {
     constructor(data)
     {
-        this.data;
-        this.next = null;
+        this.data=data;
+        this.next;
         //this.next=null;
     }
 }
@@ -30,21 +30,18 @@ class Stack
         //var data = data;
         //console.log("D"+data);
         //console.log("Empty"+this.isEmpty());
-        if(this.isEmpty())
+        if(node==null)
         {
-            this.top=node;
-            node.data=data;
+            //this.top=node;
+            //node.data=data;
             //console.log(data);
+            console.log("Stack Underflow");
+            return
         }
         else
         {
+            node.next=this.top;
             this.top = node; 
-            let current=this.top;
-            node.next=current.next;
-            
-            //node = this.top.next;
-            node.data=data;
-            //console.log(data);
         }
 
     }
@@ -52,15 +49,15 @@ class Stack
     //to pop elements
     popElement()
     {
-        //if(this.isEmpty())  throw 'Stack Underflow'
+        if(this.isEmpty())  throw 'Stack Underflow'
 
         if(this.top!==null)
         {
-            var topdata = this.top.data;
+            //var topdata = this.top.data;
             //console.log("Inside"+topdata);
             this.top= this.top.next;
             //console.log(this.top);
-            return topdata;
+            //return topdata;
         }
         else
             return
@@ -70,14 +67,42 @@ class Stack
     //display
     display()
     {
+        var string = ""
         if(this.isEmpty())   throw "Stack Underflow"
-
-        while(this.top!=null)
+        var current = this.top;
+        while(current!=null)
         {
-            console.log(this.top.data);
-            this.top= this.top.next;
+            string += current.data + " ";
+            current= current.next;
         }
+        console.log(string);
+        //return string;
     }
+
+    //reverse
+    reverse()
+    {
+        var s =this.peek();
+console.log(s);
+        let current = this.top;
+        //console.log(this.peek());
+        var string = new Array();
+        //var array=new Array();
+        while(current!==null)
+        {
+            string += current.data+" ";
+            current=current.next;
+            //this.popElement();
+        }
+        //string = 
+        console.log(string[1]);
+
+    }
+
+    peek() 
+    { 
+        return this.top; 
+    } 
 
     isBalancedParentheses(exp)
     {
