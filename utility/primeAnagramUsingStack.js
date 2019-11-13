@@ -30,14 +30,6 @@ module.exports={
                             utl.pushElement(primenumbers[j]);
                         }
                     } 
-                    /*else 
-                    {
-                        if (primenumbers[j] <= range) 
-                        {
-                            utl.push(primenumbers[i]);
-                            utl.push(primenumbers[j]);
-                        }
-                    }*/
                 }
         
             }

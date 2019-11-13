@@ -622,8 +622,6 @@ methods.TwoDArray = function(myArray,m,n)
 } 
 
 //merge sort
-
-
 /*
 methods.Divide= function(merge, low, high)
 {
@@ -661,6 +659,7 @@ methods.Merge(merge,low,m,high)
         }
     }
 }*/
+
 //Question to find your number
 methods.FindNumber = function(array,l,r)
 {

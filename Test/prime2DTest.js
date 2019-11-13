@@ -6,7 +6,7 @@ describe('prime2D',function(){
 
     let string = 'abc';
     let array =[];
-
+    
     it('cannot be undefined',function()
     {
         let result = util.primeNumber(undefined);

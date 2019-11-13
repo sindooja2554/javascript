@@ -11,7 +11,7 @@ function orderedList()
     string= fs.readFileSync('orderlist.txt').toString();
     var result=[];
     result=string.split(" ");
-    var array= util.BubbleSort(result)
+    var array= util.BubbleSort(result);
     console.log(array);
     for(var i=0;i<array.length;i++)
     {

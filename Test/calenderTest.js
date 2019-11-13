@@ -23,12 +23,6 @@ describe('calender',function()
         assert.equal(result,'Year should be a number');
     })
 
-    /*it('Length should be four',function()
-    {
-        let result = u.isLeapYear(year);
-        assert.equal(result,'Year should be in range 1000-9999');
-    })*/
-
     it('Cannot be undefined',function()
     {
         let result = u.dayOfWeek(undefined,undefined,undefined);
@@ -46,6 +40,21 @@ describe('calender',function()
         assert.equal(result,'Should be number');
     })
 
+    it('Month should be in range',function(){
+        let result = u.dayOfWeek(50,1,2020);
+        assert.equal(result,'Month should be in range');
+    })
+
+    it('Year should be in range',function(){
+        let result = u.dayOfWeek(1,1,20200);
+        assert.equal(result,'Year should be in range');
+    })
+
+    it('Day should be in range',function(){
+        let result = u.dayOfWeek(1,41,2020);
+        assert.equal(result,'Day should be in range');
+    })
+
     it('Cannot be undefined',function(){
         let result = u.displayCalender(undefined,undefined);
         assert.equal(result,'Cannot be undefined or null');
@@ -60,5 +69,7 @@ describe('calender',function()
         let result = u.displayCalender(1,string);
         assert.equal(result,'Should be number');
     })
+
+    
     
 })

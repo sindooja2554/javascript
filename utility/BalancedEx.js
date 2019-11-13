@@ -4,7 +4,6 @@ class Node
     {
         this.data=data;
         this.next;
-        //this.next=null;
     }
 }
 class Stack
@@ -27,9 +26,6 @@ class Stack
     pushElement(data)
     {
         var node = new Node(data);
-        //var data = data;
-        //console.log("D"+data);
-        //console.log("Empty"+this.isEmpty());
         if(node==null)
         {
             //this.top=node;
@@ -82,21 +78,15 @@ class Stack
     //reverse
     reverse()
     {
-        var s =this.peek();
-console.log(s);
         let current = this.top;
-        //console.log(this.peek());
         var string = new Array();
-        //var array=new Array();
         while(current!==null)
         {
             string += current.data+" ";
             current=current.next;
-            //this.popElement();
+            this.popElement();
         }
-        //string = 
         console.log(string[1]);
-
     }
 
     peek() 
@@ -108,7 +98,6 @@ console.log(s);
     {
         var len;
         len = exp.length;
-        //var stk = new st.Stack(len);
         var expArr = [];
         expArr = exp;
         var st =new Array();

@@ -6,6 +6,7 @@ hashFunction(hashArray,result)
 {
     try
     {
+        console.log("inside");
         if(result===undefined || result===null)    throw 'File cannot be empty'
         if(isNaN(result))   throw 'Should be a number'
         for(var i=0;i<result.length;i++)
